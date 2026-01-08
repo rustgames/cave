@@ -18,4 +18,4 @@ lto = "thin"
 codegen-units = 1
 
 [dependencies]
-bevy = { version = "0.17", features = ["dynamic_linking"] }
+bevy = "0.17"
