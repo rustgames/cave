@@ -3,5 +3,19 @@ name = "cave"
 version = "0.1.0"
 edition = "2024"
 
+# Bevy projects commonly benefit from these profile settings.
+# They keep debug builds fast enough to run, without making compile times explode.
+
+[profile.dev]
+opt-level = 1
+
+# Compile dependencies (incl. Bevy) with higher optimizations in dev.
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
 [dependencies]
-bevy = "0.17"
+bevy = { version = "0.17", features = ["dynamic_linking"] }
